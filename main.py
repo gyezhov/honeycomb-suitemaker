@@ -2,7 +2,7 @@ import os
 
 # Paths
 base_dir = 'GregsHoneycombGGL'
-images_dir = 'C:\Users\gyezhov\Pictures\Logos\Finished Icons'  # Replace with the actual path to your images folder
+images_dir = r'C:\Users\gyezhov\Pictures\Logos\Finished Icons'  # Replace with the actual path to your images folder
 
 # Ensure the base directory exists
 if not os.path.exists(base_dir):
