@@ -2,32 +2,26 @@ import os
 import shutil
 
 # Define the path to the Honeycomb + GGL directory and the destination Wallpapers directory
-honeycomb_path = 'path_to_Honeycomb_GGL_directory'
-wallpapers_path = 'path_to_Wallpapers_directory'
+honeycomb_path = r'C:\Users\gyezhov\Documents\Rainmeter\Skins\Honeycomb + GGL'
+wallpapers_path = r'C:\Users\gyezhov\Pictures\Wallpapers'
 
 # Ensure the Wallpapers directory exists
 os.makedirs(wallpapers_path, exist_ok=True)
 
-# Loop through each skin directory in the Honeycomb + GGL directory
-for skin in os.listdir(honeycomb_path):
-    skin_path = os.path.join(honeycomb_path, skin)
-    background_path = os.path.join(skin_path, 'Background')
-    background_ini_path = os.path.join(background_path, 'background.ini')
+def copy_jpg_files(source_dir, dest_dir):
+    # Create the destination directory if it does not exist
+    if not os.path.exists(dest_dir):
+        os.makedirs(dest_dir)
 
-    # Check if the Background directory and background.ini file exist
-    if os.path.exists(background_path) and os.path.exists(background_ini_path):
-        # Read the background.ini file to find the ImageName
-        with open(background_ini_path, 'r') as f:
-            lines = f.readlines()
-        
-        for line in lines:
-            if 'ImageName' in line:
-                image_name = line.split('=')[1].strip().replace('"', '')
-                image_path = os.path.join(background_path, image_name)
-                
-                # Check if the image file exists and copy it to the Wallpapers directory
-                if os.path.exists(image_path):
-                    destination = os.path.join(wallpapers_path, os.path.basename(image_path))
-                    shutil.copyfile(image_path, destination)
-                    print(f"Copied {image_path} to {destination}")
-                break
+    # Walk through the source directory
+    for root, dirs, files in os.walk(source_dir):
+        for file in files:
+            if file.lower().endswith('.jpg'):
+                source_file = os.path.join(root, file)
+                destination_file = os.path.join(dest_dir, file)
+                # Copy the jpg file to the destination directory
+                shutil.copy2(source_file, destination_file)
+                print(f"Copied: {source_file} to {destination_file}")
+
+
+copy_jpg_files(honeycomb_path, wallpapers_path)
