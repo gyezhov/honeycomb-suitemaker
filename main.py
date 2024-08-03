@@ -36,7 +36,6 @@ for image in os.listdir(images_dir):
         shutil.move(os.path.join(images_dir, image), os.path.join(resources_images_dir, image))
 
 # Function to copy skins and ensure they exist in GregsHoneycombGGL
-# Function to copy skins and ensure they exist in GregsHoneycombGGL
 def copy_skins(src, dest):
     for root, dirs, files in os.walk(src):
         for file in files:
