@@ -6,20 +6,22 @@ This project automates the creation and management of Rainmeter skins, specifica
 
 ## Directory Structure
 
+```
 GregsHoneycombGGL/
 │
 ├── @Resources/
-│ └── Images/
-│ └── *.png # Icon images for applications
+│   └── Images/
+│       └── *.png            # Icon images for applications
 │
 ├── {AppName}/
-│ ├── {AppName}.ini # Main configuration file for the skin
-│ ├── Background/
-│ │ ├── background.ini # Configuration file for the background
-│ │ └── {AppName}.jpg # Background wallpaper for the skin
-│ └── ... # Additional skins for the same app, if any
+│   ├── {AppName}.ini        # Main configuration file for the skin
+│   ├── Background/
+│   │   ├── background.ini   # Configuration file for the background
+│   │   └── {AppName}.jpg    # Background wallpaper for the skin
+│   └── ...                  # Additional skins for the same app, if any
 │
 └── ...
+```
 
 
 ## Project Components
